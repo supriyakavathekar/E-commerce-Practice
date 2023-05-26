@@ -4,6 +4,10 @@
 --footer-heigth:76px;
 --primary-bg-color:#575252;
 --secondary-bg-color:#C5F1FF;
+--acccent-color:blue;
+
+
+
 }
 *{
     margin: 0;
@@ -255,13 +259,39 @@ footer{
     margin-top: 10px;
   }
   .page-dot {
-    width: 10px;
-    height: 10px;
+    width: 15px;
+    height: 15px;
     background-color: var(--secondary-bg-color);
     border-radius: 50%;
     margin: 0 5px;
     cursor: pointer;
     &:hover {
-      background-color: var(--accent-color);
+      /* background-color: var(--accent-color); */
+      background-color: var(--acccent-color);
+      
     }
+   
+
+    
   }
+ /* or you can  */
+  /* .page-dot:hover {
+    background-color: var(--accent-color);
+  } */
+
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+.navigation-menu a {
+  font-size: 2em;
+}
+
+
+
+.nav-container {
+  width: 100%;
+
+}
+
+}
