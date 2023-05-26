@@ -16,13 +16,22 @@ fetch("https://dummyjson.com/products")
 .then(response=>response.json())
 .then(data=>{
     const products = data.products;
-    const firstProduct= products[25];
-    console.log('FirstProduct:',firstProduct)
-    const productPhotos = firstProduct.images;
+    // const firstProduct= products[25];
+    // console.log('FirstProduct:',firstProduct)
+    // const productPhotos = firstProduct.images;
     // console.log('Productimage:',productPhotos)
-
-   renderSlider(productPhotos);
-   renderProductDetails(firstProduct)
+//    renderSlider(productPhotos);
+//    renderProductDetails(firstProduct)
+    const productIds = ["image1", "image2","image3","image4"];
+    productIds.forEach((productId) => {
+        const imageElement = document.getElementById(productId);
+        console.log('imageElement:', imageElement);
+        imageElement.addEventListener('click', () => {
+            const product = productId.slice(-1)
+          renderSlider(products[product].images);
+          renderProductDetails(products[product]);
+        });
+      })
 })
 .catch(error=>{
     console.log( 'error fetching product data:',error);
@@ -32,6 +41,7 @@ fetch("https://dummyjson.com/products")
 function renderSlider(photos) {
     const slider = document.getElementById('slider')
     console.log(photos);
+    slider.innerHTML = "";
 
 
     photos.slice(0,4).forEach((photoUrl) => {
@@ -82,3 +92,9 @@ function renderProductDetails(product) {
         alert(`${product.title} for EUR ${product.price} has been added to your cart`)
     }
 }
+
+    
+
+
+
+
